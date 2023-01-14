@@ -42,7 +42,7 @@ public class RobotContainer {
       
   }
 public Command getTeleOpDriveCommand(){
-    return new RunCommand(() -> drivetrain.drive(controller.getLeftY(), controller.getLeftX()), drivetrain);
+    return new RunCommand(() -> drivetrain.drive(controller.getRightX(), controller.getLeftY()), drivetrain);
 }
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.

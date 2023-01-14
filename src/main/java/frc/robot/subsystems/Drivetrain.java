@@ -17,6 +17,7 @@ public class Drivetrain extends SubsystemBase {
   private final CANSparkMax rightFrontMotor = new CANSparkMax(Constants.RIGHT_WHEEL_PORT,MotorType.kBrushless);
   private final DifferentialDrive drivetrain;
   public Drivetrain() {
+    rightFrontMotor.setInverted(true);
     drivetrain = new DifferentialDrive(leftFrontMotor,rightFrontMotor);
     drivetrain.setMaxOutput(.25);
   }
@@ -25,7 +26,7 @@ public class Drivetrain extends SubsystemBase {
   public void periodic() {
     // This method will be called once per scheduler run
   }
-  public void drive(double leftSpeed, double rightSpeed){
-      drivetrain.tankDrive(leftSpeed, rightSpeed);
+  public void drive(double xSpeed, double zRotation){
+      drivetrain.arcadeDrive(xSpeed, zRotation);
   }
 }
